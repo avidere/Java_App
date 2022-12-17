@@ -43,8 +43,17 @@ pipeline {
             post {
                 success {
                         junit "$utest_url"
+                }
+            }
+        }
+        stage{
+            steps{
+                echo "Code Coverage report"
+            }
+            post {
+                success {
                         jacoco()
-                    }
+                   }
             }
         }
     /*

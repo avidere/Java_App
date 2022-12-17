@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-        stage{
+        stage('Publish Code Coverage report'){
             steps{
                 echo "Code Coverage report"
             }

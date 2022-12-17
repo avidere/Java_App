@@ -33,7 +33,7 @@ pipeline {
                 echo "Maven Build Completed"
             }
         }
-        stage('Unit Testing'){
+        stage('Unit Testing and Code Coverage report'){
             steps{
                 script{
                     sh "${env.mvntest}"
@@ -43,6 +43,7 @@ pipeline {
             post {
                 success {
                         junit "$utest_url"
+                        jacoco()
                 }
             }
         }
@@ -54,16 +55,6 @@ pipeline {
                         echo"Static Code Analysis"
                     }
                 }
-            }
-            post {
-                success {
-                        jacoco()
-                   }
-            }
-        }
-        stage('Publish Code Coverage report'){
-            steps{
-                echo "Code Coverage report"
             }
         }
         stage('Quality Gate Status') {

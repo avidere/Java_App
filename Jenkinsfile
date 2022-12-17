@@ -46,17 +46,6 @@ pipeline {
                 }
             }
         }
-        stage('Publish Code Coverage report'){
-            steps{
-                echo "Code Coverage report"
-            }
-            post {
-                success {
-                        jacoco()
-                   }
-            }
-        }
-    /*
         stage('Static code analysis') {
             steps{
                 script{
@@ -67,6 +56,16 @@ pipeline {
                 }
             }
         }
+        stage('Publish Code Coverage report'){
+            steps{
+                echo "Code Coverage report"
+            }
+            post {
+                success {
+                        jacoco()
+                   }
+            }
+        }
         stage('Quality Gate Status') {
                 steps{
                     script{
@@ -74,7 +73,7 @@ pipeline {
                         echo "Quality Gate status Completed"
                     }
                 }
-        }*/
+        }
     /*    stage('Upload Artifact to nexus repository') {
             steps {
                 script {

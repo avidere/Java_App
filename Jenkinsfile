@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         def git_branch = 'master'
-        def git_url = 'https://github.com/Abhishek08/MavenJacoco.git'
+        def git_url = 'https://github.com/avidere/Java_App.git'
 
         def mvntest = 'mvn test '
         def mvnpackage = 'mvn clean install'

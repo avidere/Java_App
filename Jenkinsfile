@@ -55,15 +55,15 @@ pipeline {
                     }
                 }
             }
-        }
-        stage('Publish Code Coverage report'){
-            steps{
-                echo "Code Coverage report"
-            }
             post {
                 success {
                         jacoco()
                    }
+            }
+        }
+        stage('Publish Code Coverage report'){
+            steps{
+                echo "Code Coverage report"
             }
         }
         stage('Quality Gate Status') {

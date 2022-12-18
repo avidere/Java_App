@@ -35,13 +35,7 @@ pipeline {
         }
         stage('Unit Testing and Code Coverage report'){
             steps{
-                script{
-                    sh "${env.mvntest}"
-                    echo "Unit Testing Completed"
-                }
-            }
-            post {
-                success {
+                script {
                         junit "$utest_url"
                         jacoco()
                 }

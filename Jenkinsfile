@@ -41,15 +41,6 @@ pipeline {
                 }
             }
         }
-        stage('Sonar Scaneer coverage report'){
-            steps{
-                script{
-                    sh 'mvn test sonar:sonar 
-                    -DSonar.login=fd1df8e38c9f9df8a0e2491d737a33a2811d8800 
-                    -Desonar.host.url=http://35.72.29.202:9000/'
-                }
-            }
-        }
         stage('Static code analysis') {
             steps{
                 script{

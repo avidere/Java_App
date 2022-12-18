@@ -9,9 +9,9 @@
       <!-- lookup parent from repository -->
    </parent>
    <groupId>com.asimio.demo</groupId>
-   <artifactId>code-coverage-maven-jacoco</artifactId>
+   <artifactId>Java_app</artifactId>
    <version>0-SNAPSHOT</version>
-   <name>code-coverage-maven-jacoco</name>
+   <name>Java_app</name>
    <description>Spring Boot 2 - Maven - Surefire - JaCoCo - Unit and integration tests coverage</description>
    <properties>
       <java.version>1.8</java.version>

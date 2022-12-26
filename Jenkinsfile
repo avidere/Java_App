@@ -59,7 +59,7 @@ pipeline {
                     }
                 }
         }
-    /*    stage('Upload Artifact to nexus repository') {
+        stage('Upload Artifact to nexus repository') {
             steps {
                 script {
                     def mavenpom = readMavenPom file: 'pom.xml'
@@ -71,10 +71,10 @@ pipeline {
                     def proto = 'http'
                     nexusArtifactUploader artifacts: [
                     [
-                        artifactId: 'springboot',
+                        artifactId: 'Java_app',
                         classifier: '',
-                        file: "target/springboot-${mavenpom.version}.jar",
-                        type: 'jar'
+                        file: "target/Java_app-${mavenpom.version}.war",
+                        type: 'war'
                     ]
                 ],
                     credentialsId: "${nex_cred}",

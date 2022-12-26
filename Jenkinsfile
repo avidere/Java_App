@@ -62,13 +62,9 @@ pipeline {
         stage('Upload Artifact to nexus repository') {
             steps {
                 script {
+                    
                     def mavenpom = readMavenPom file: 'pom.xml'
-                    def nex_repo = 'mavenpom.version.endwith('SNAPSHOT') ? "demoproject-SNAPSHOT" : "demoproject-Release"
-                    def nex_cred = 'nexus'
-                    def grp_ID = 'com.example'
-                    def nex_url = '172.31.28.226:8081'
-                    def nex_ver = 'nexus3'
-                    def proto = 'http'
+                    def nex_repo = mavenpom.version.endsWith('SNAPSHOT') ? 'demoproject-snapshot' : 'demoproject-Release'
                     nexusArtifactUploader artifacts: [
                     [
                         artifactId: 'Java_app',
@@ -77,16 +73,16 @@ pipeline {
                         type: 'war'
                     ]
                 ],
-                    credentialsId: "${nex_cred}",
-                    groupId: "${grp_ID}",
-                    nexusUrl: "${nex_url}",
-                    nexusVersion: "${nex_ver}",
-                    protocol: "${proto}",
+                    credentialsId: "${env.nex_cred}",
+                    groupId: "${env.grp_ID}",
+                    nexusUrl: "${env.nex_url}",
+                    nexusVersion: "${env.nex_ver}",
+                    protocol: "${env.proto}",
                     repository: "${nex_repo}",
                     version: "${mavenpom.version}"
-                    echo "Artifact uploaded to nexus repository"
+                    echo 'Artifact uploaded to nexus repository'
                 }
             }
-        }*/
+        }
     }
 }

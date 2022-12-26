@@ -11,6 +11,7 @@
    <groupId>com.asimio.demo</groupId>
    <artifactId>Java_app</artifactId>
    <version>0-SNAPSHOT</version>
+   <packaging>war</packaging>
    <name>Java_app</name>
    <description>Spring Boot 2 - Maven - Surefire - JaCoCo - Unit and integration tests coverage</description>
    <properties>
